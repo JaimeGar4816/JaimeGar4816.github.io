@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jaime Garcia | Cybersecurity Portfolio</title>
+<meta name="description" content="Jaime, IT and Cybersecurity student at Aurora University. Security projects, experience, and contact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0f14;
+    --panel: #121821;
+    --line: #1f2a37;
+    --text: #e6edf3;
+    --muted: #8b98a8;
+    --accent: #3ddc97;
+    --accent-2: #4cc9f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Inter, system-ui, sans-serif;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+  .mono { font-family: "JetBrains Mono", monospace; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(11,15,20,.85); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+  nav .logo { color: var(--accent); font-weight: 600; }
+  nav ul { display: flex; gap: 22px; list-style: none; }
+  nav ul a { color: var(--muted); font-size: 14px; }
+  nav ul a:hover { color: var(--text); text-decoration: none; }
+
+  header { padding: 100px 0 70px; }
+  .tag { color: var(--accent); font-size: 14px; margin-bottom: 14px; }
+  h1 { font-size: clamp(36px, 6vw, 56px); line-height: 1.1; margin-bottom: 18px; }
+  h1 span { color: var(--accent-2); }
+  .lead { color: var(--muted); font-size: 18px; max-width: 620px; margin-bottom: 30px; }
+  .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    padding: 11px 20px; border-radius: 8px; font-weight: 600; font-size: 15px;
+    border: 1px solid var(--accent); color: var(--accent);
+  }
+  .btn.primary { background: var(--accent); color: #06130d; }
+  .btn:hover { text-decoration: none; opacity: .9; }
+
+  section { padding: 60px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 26px; margin-bottom: 26px; }
+  h2 .num { color: var(--accent); font-size: 18px; margin-right: 8px; }
+
+  .about p { color: var(--muted); margin-bottom: 14px; max-width: 720px; }
+  .about strong { color: var(--text); }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 24px; display: flex; flex-direction: column; transition: border-color .2s, transform .2s;
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .card h3 { font-size: 19px; margin-bottom: 6px; }
+  .card .badge { font-size: 12px; color: var(--accent-2); margin-bottom: 12px; }
+  .card p { color: var(--muted); font-size: 15px; margin-bottom: 14px; }
+  .card ul { color: var(--muted); font-size: 14px; padding-left: 18px; margin-bottom: 16px; }
+  .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; margin-bottom: 14px; }
+  .stack span {
+    font-size: 12px; padding: 3px 9px; border-radius: 20px;
+    background: rgba(61,220,151,.1); color: var(--accent);
+  }
+  .links { display: flex; gap: 16px; font-size: 14px; font-weight: 600; }
+
+  .job { display: grid; grid-template-columns: 170px 1fr; gap: 20px; margin-bottom: 30px; }
+  .job .when { color: var(--muted); font-size: 14px; }
+  .job h3 { font-size: 18px; }
+  .job .where { color: var(--accent-2); font-size: 14px; margin-bottom: 8px; }
+  .job ul { color: var(--muted); font-size: 15px; padding-left: 18px; }
+
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; }
+  .skills h4 { color: var(--accent); font-size: 14px; margin-bottom: 8px; }
+  .skills p { color: var(--muted); font-size: 15px; }
+
+  .contact { text-align: center; }
+  .contact p { color: var(--muted); max-width: 520px; margin: 0 auto 26px; }
+  .contact .btns { justify-content: center; }
+
+  footer { text-align: center; color: var(--muted); font-size: 13px; padding: 30px 0; border-top: 1px solid var(--line); }
+
+
+  .resume-box { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .resume-box iframe { width: 100%; height: 900px; border: 0; display: block; background: #fff; }
+  .resume-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+  .resume-bar p { color: var(--muted); }
+  @media (max-width: 640px) { .resume-box iframe { height: 520px; } }
+
+  @media (max-width: 640px) {
+    nav ul { display: none; }
+    header { padding: 70px 0 50px; }
+    .job { grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo mono">jaime@sec:~$</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <p class="tag mono">&gt; Hi, my name is</p>
+    <h1>Jaime Garcia.<br><span>I keep systems secure.</span></h1>
+    <p class="lead">IT &amp; Cybersecurity student at Aurora University with 3+ years of hands-on security work for a real business. I build tools that protect people, like a published Chrome extension that catches phishing emails.</p>
+    <div class="btns">
+      <a class="btn primary" href="#projects">See my projects</a>
+      <a class="btn" href="#resume">View resume</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about">
+    <h2><span class="num mono">01.</span>About me</h2>
+    <p>I'm studying <strong>Information Technology &amp; Cybersecurity at Aurora University</strong> (Class of 2028), after earning my Associate of Computer Science from Waubonsee Community College.</p>
+    <p>Since 2022 I've been the <strong>IT Generalist &amp; Security Administrator</strong> for JG Swimming Pools, where I handle MFA rollout, endpoint security, phishing awareness training, and vulnerability assessments. That's where I learned security isn't just theory. It's protecting real people and real data.</p>
+    <p>My long term goal is to become a <strong>Cloud Security Engineer</strong>. Right now I'm working toward my CompTIA Security+ and looking for a Summer 2027 cybersecurity internship.</p>
+    <p>Bilingual in <strong>English and Spanish</strong>. Based in Oswego, IL (Chicago area).</p>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2><span class="num mono">02.</span>Projects</h2>
+    <div class="grid">
+
+      <div class="card">
+        <h3><a href="https://github.com/JaimeGar4816/Phishing-Email-Alert" target="_blank" style="color:inherit">Phishing Email Alert</a></h3>
+        <p class="badge mono">Published on Chrome Web Store</p>
+        <p>A Chrome extension that scans webmail and flags phishing links before you click them. Suspicious links get highlighted and disabled automatically.</p>
+        <ul>
+          <li>Detects 10+ attack types: typosquatting, homograph and IDN attacks, URL mismatches, raw IP links, URL shorteners</li>
+          <li>Flags brand impersonation and urgent "verify your account" language</li>
+          <li>Settings page and threat stats, no API keys needed</li>
+        </ul>
+        <div class="stack"><span>JavaScript</span><span>Chrome Extensions</span><span>Phishing Detection</span></div>
+        <div class="links">
+          <a href="https://github.com/JaimeGar4816/Phishing-Email-Alert" target="_blank">View code on GitHub</a>
+          <a href="https://chromewebstore.google.com/detail/phishing-email-alert/emllmbolhhnkgbjdogciijhbfeinfcdc" target="_blank">Chrome Store</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><a href="https://github.com/JaimeGar4816/asl-vision-translator" target="_blank" style="color:inherit">Real-Time ASL Translator</a></h3>
+        <p class="badge mono">AI + Computer Vision</p>
+        <p>Sign into your webcam and it builds text live. Recognizes all 26 ASL letters, including motion letters J and Z using a custom motion path analyzer.</p>
+        <ul>
+          <li>Full pipeline: data collection, model training, live inference</li>
+          <li>Custom dataset of 63-feature hand landmark vectors</li>
+          <li>Live UI with word suggestions and repeat-letter control</li>
+        </ul>
+        <div class="stack"><span>Python</span><span>MediaPipe</span><span>Random Forest</span><span>Machine Learning</span></div>
+        <div class="links">
+          <a href="https://github.com/JaimeGar4816/asl-vision-translator" target="_blank">View code on GitHub</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2><span class="num mono">03.</span>Experience</h2>
+
+    <div class="job">
+      <div class="when mono">2022 to Present</div>
+      <div>
+        <h3>IT Generalist &amp; Security Administrator</h3>
+        <div class="where">JG Swimming Pools, Inc. &middot; Oswego, IL</div>
+        <ul>
+          <li>Implemented MFA, password management, and security policy enforcement across all company devices</li>
+          <li>Deployed and managed endpoint protection and malware prevention</li>
+          <li>Ran security awareness training on phishing, social engineering, and common attack vectors</li>
+          <li>Performed endpoint hardening, system patching, and vulnerability identification</li>
+          <li>Manage device setup, network configuration, routers, printers, and networked systems</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when mono">Summer 2025</div>
+      <div>
+        <h3>Backend Engineer Intern</h3>
+        <div class="where">Garden &amp; Prairie Tech Group &middot; Batavia, IL</div>
+        <ul>
+          <li>Built secure backend infrastructure with Java 23 and Spring Boot, using input validation and security best practices</li>
+          <li>Developed and documented RESTful CRUD endpoints with clean data and domain layer separation</li>
+          <li>Integrated MariaDB with Spring Data JPA and managed migrations with Liquibase</li>
+          <li>Deployed containerized apps with Docker for consistent, reproducible builds</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when mono">2022 to 2025</div>
+      <div>
+        <h3>Customer Service Manager</h3>
+        <div class="where">Fossil &middot; Aurora, IL</div>
+        <ul>
+          <li>Managed point of sale operations, inventory, and online order fulfillment</li>
+          <li>Troubleshot POS system issues and resolved customer problems</li>
+          <li>Trained and mentored new team members</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2><span class="num mono">04.</span>Skills</h2>
+    <div class="skills">
+      <div><h4 class="mono">Security</h4><p>MFA deployment, endpoint protection, phishing prevention, vulnerability assessment, threat identification, security policy enforcement</p></div>
+      <div><h4 class="mono">Programming</h4><p>Java (Spring Boot), Python, JavaScript, C++, REST APIs, Machine Learning</p></div>
+      <div><h4 class="mono">Systems &amp; Networking</h4><p>Linux, Windows Server, Docker, Git, MariaDB/MySQL, Cisco Packet Tracer, CIDR subnetting</p></div>
+      <div><h4 class="mono">In Progress</h4><p>CompTIA Security+, SIEM and log analysis, cloud security</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="resume">
+  <div class="wrap">
+    <h2><span class="num mono">05.</span>Resume</h2>
+    <div class="resume-bar">
+      <p>Quick look below, or grab the PDF.</p>
+      <div class="btns">
+        <a class="btn primary" href="resume.pdf" download="Jaime_Garcia_Resume.pdf">Download PDF</a>
+        <a class="btn" href="resume.pdf" target="_blank">Open in new tab</a>
+      </div>
+    </div>
+    <div class="resume-box">
+      <iframe src="resume.pdf#view=FitH" title="Jaime Garcia resume"></iframe>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <h2><span class="num mono">06.</span>Let's connect</h2>
+    <p>I'm looking for a Summer 2027 cybersecurity internship. If you're hiring or just want to talk security, reach out.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:jaimegar4816@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/jaime-garcia07" target="_blank">LinkedIn</a>
+      <a class="btn" href="https://github.com/JaimeGar4816" target="_blank">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer class="mono">Built by Jaime Garcia &middot; Hosted on GitHub Pages</footer>
+
+</body>
+</html>
